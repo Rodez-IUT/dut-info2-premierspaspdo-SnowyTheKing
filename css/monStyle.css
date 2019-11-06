@@ -1,0 +1,139 @@
+/* Importation de la police Google */
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+
+body{
+	color:#585976;		/* Couleur de la police Gris foncé */
+	background: linear-gradient(#8EB3C8, white);
+	font-family: 'Righteous', cursive!important; /* Utilisation de la police Righteous */
+}
+
+h1 {
+	/* Définition des titres (des pages) */
+	color:#AE3030!important;
+	font-size: 2em!important; 	/* Double de la police normale */
+	font-weight:bold!important;
+}
+
+h2 {
+	/* Définition des titres de niveau 2 */
+	color:#AE3030!important;
+	font-size: 2em!important; 	/* Double de la police normale */
+}
+
+.texte{
+	font-size: 1.75em; 	/* Double de la police normale */
+	color:#AE3030;
+	font-weight:bold;
+}
+
+.row,  [class^="col-"]{
+	border-style:solid ; 	/* Bordure double */
+	border-width:3px;		/* Epaisseur bordure */
+	border-color:#1B4B67;	/* Couleur de la bordure */
+	border-radius: 5px;		/* Arrondissement des angles */
+	/*margin :5px;*/
+	padding:5px;
+	text-align:center;  /* Centrage du texte */
+}
+
+a{
+	color:#8C0404;		/* couleur des liens non visités */
+}
+
+a:visited { 
+	color: grey; 		/* couleur des liens  visités */
+}
+
+/* .entete{ /* Définition des propriétés de l'entete */ *
+	/* background: linear-gradient(#8EB3C8, white); */
+/* } */
+
+/* .contenu{ /* Définition des propriétés du corps de la page */ 
+		/* background: linear-gradient(#8EB3C8, white); */
+/* } */
+
+/* .basDePage{ /* Définition des propriétés du bas de la page */
+		/* background: linear-gradient(#8EB3C8, white); */
+/* } */
+
+/* .largeur100{ /* Permet de mettre les tables en 100% de la largeur */
+	/* width:100%; */
+/* } */
+
+/* .largeurColonne25 { /* Largeur de colonnes 25% */ 
+  /* width:25%; */
+/* } */
+
+/* .largeurColonne20 { /* Largeur de colonnes 20% */ 
+  /* width:20%; */
+/* } */
+
+/* .largeurColonne50 { /* Largeur de colonnes 20% */
+  /* width:50%; */
+/* } */
+
+/* .largeurColonne80 { /* Largeur de colonnes 80% */ 
+  /* width:80%; */
+/* } */
+
+/* .largeurColonne40 { /* Largeur de colonnes 40% */ 
+  /* width:40%; */
+/* } */
+
+/* .largeurColonne33 { /* Largeur de colonnes 33.33% */ 
+  /* width:33.33%; */
+/* } */
+
+.sansCadre{
+	border-width:0px;
+}
+
+#imageHaut{
+	height:170px;
+	border-radius: 15px;
+	padding-top:5px;
+}
+
+
+
+.imagesCentre{
+	height:150px;
+}
+
+#logoIUT{
+	width:100px;
+}
+
+#cadreModeEmploi{
+	background-image:url("../images/devanture.jpg");	/* Image de fond pour le cadre mode d'emploi */
+	color:#AE3030;		/* Couleur de la police BLanc */
+	min-height:360px;   /* Hauteur minimum pour alignement avec "icones" */
+}
+#cadreIcones{
+	background-image:url("../images/devanture2.jpg");	/* Image de fond pour le cadre contenant les icones */
+	min-height:360px; /* Hauteur minimum pour alignement avec cadre mode d'emploi */
+}
+
+@media (max-width: 1000px) {
+	/* Sur les smartphones, on ne fixe plus la hauteur minimum de la case  */
+	#cadreModeEmploi{
+		min-height:0px;   /* Hauteur minimum pour alignement avec "icones" */
+	}
+	#cadreIcones{
+		min-height:0px;   /* Hauteur minimum pour alignement avec "icones" */
+	}
+	.imagesCentre{
+		height:50px;
+	}
+	#imageHaut{
+		height:100px;
+	}
+}
+
+
+
+
+img:hover {
+	-webkit-transform:scale(1.2); 	/* Transformation pour Firefox */
+	transform: scale(1.2);			/* Transformation pour les autres navigateurs  */
+}
