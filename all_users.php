@@ -43,7 +43,7 @@
 					while ($row = $stmt->fetch()) {
 				?>
 					<tr>
-						<td><?php echo $row['id'];?></td>
+						<td><?php echo $row['id'];?></td> <!--Test pour pour commit avec le bon "fix"-->
 						<td><?php echo $row['username'] ;?></td>
 						<td><?php echo $row['email'];?></td>
 						<td><?php echo $row['status_id'];?></td>
