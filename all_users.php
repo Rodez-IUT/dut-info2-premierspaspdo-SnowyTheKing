@@ -34,24 +34,23 @@
 		<table>
 			<tr>
 				<th>ID</th>
-				<th>Username</th>
-				<th>Email</th>
-				<th>Status</th>
+				<th>	Username</th>
+				<th>	Email</th>
+				<th>	Status</th>
 			</tr>
-			<tr>
 				<?php
 					$stmt = $pdo->query('SELECT * FROM users');
 					while ($row = $stmt->fetch()) {
 				?>
-						<td><?php echo $row['id'];?></td><br>
-						<td><?php echo $row['username'] ;?><td><br>
-						<td><?php echo $row['email'];?></td><br>
-						<td><?php echo $row['status_id'];?></td><br>
+					<tr>
+						<td><?php echo $row['id'];?></td>
+						<td><?php echo $row['username'] ;?></td>
+						<td><?php echo $row['email'];?></td>
+						<td><?php echo $row['status_id'];?></td>
+					</tr>
 				<?php
 					}
 				?>
-			</tr>
 		</table>
-
 	</body>
 </html>
