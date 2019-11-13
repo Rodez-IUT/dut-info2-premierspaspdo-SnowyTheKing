@@ -2,7 +2,7 @@
 <html lang="fr">
 	<head>
 		<meta charset="utf-8">
-		<title>premier pas en PDO</title>
+		<title>Premier pas en PDO</title>
 		<!-- Bootstrap CSS -->
 		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 		<link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -31,6 +31,8 @@
 	</head>
 	
 	<body>
+	
+		<h1>ALL USERS</h1>
 		<table>
 			<tr>
 				<th>ID</th>
@@ -39,14 +41,16 @@
 				<th>	Status</th>
 			</tr>
 				<?php
-					$stmt = $pdo->query('SELECT * FROM users');
+					$stmt = $pdo->query("SELECT * FROM users 
+					                     JOIN status ON users.status_id = status.id  
+										 WHERE name = 'Active account' AND username LIKE 'e%'");
 					while ($row = $stmt->fetch()) {
 				?>
 					<tr>
 						<td><?php echo $row['id'];?></td> <!--Test pour pour commit avec le bon "fix"-->
 						<td><?php echo $row['username'] ;?></td>
 						<td><?php echo $row['email'];?></td>
-						<td><?php echo $row['status_id'];?></td>
+						<td><?php echo $row['name'];?></td>
 					</tr>
 				<?php
 					}
