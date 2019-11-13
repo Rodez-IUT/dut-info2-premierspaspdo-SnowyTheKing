@@ -33,17 +33,32 @@
 	<body>
 	
 		<h1>ALL USERS</h1>
+		<form method="POST" action>
+			 <p>start with letter : 
+			 <input type="lettre" name="lettre" /> and status is 
+			 <select name="status">
+			<option>Active account
+			<option>Waiting for account validation
+			</select></p>
+		</form>
+
+
+		
 		<table>
 			<tr>
-				<th>ID</th>
-				<th>	Username</th>
-				<th>	Email</th>
-				<th>	Status</th>
+				<th>ID&nbsp;&nbsp;&nbsp;</th>
+				<th>Username&nbsp;&nbsp;&nbsp;</th>
+				<th>Email&nbsp;&nbsp;&nbsp;</th>
+				<th>Status</th>
 			</tr>
 				<?php
-					$stmt = $pdo->query("SELECT * FROM users 
-					                     JOIN status ON users.status_id = status.id  
-										 WHERE name = 'Active account' AND username LIKE 'e%'");
+				if(isset($_POST['lettre'])){
+					//Si une lettre est demandé on va filtrer
+					$stmt = $pdo->query("SELECT * 
+										FROM users 
+					                    JOIN status ON users.status_id = status.id  
+										WHERE name = 'Active account' AND username LIKE 'text%'");
+					$retour = $stmt-> execute( array('username'=> $_POST['lettre']));
 					while ($row = $stmt->fetch()) {
 				?>
 					<tr>
@@ -54,6 +69,7 @@
 					</tr>
 				<?php
 					}
+				}
 				?>
 		</table>
 	</body>
