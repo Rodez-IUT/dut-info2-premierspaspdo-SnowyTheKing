@@ -37,9 +37,10 @@
 			 <p>start with letter : 
 			 <input type="lettre" name="lettre" /> and status is 
 			 <select name="status">
-			<option>Active account
-			<option>Waiting for account validation
-			</select></p>
+			<option>Active account</option>
+			<option>Waiting for account validation</option>
+			</select>
+			<input type ="submit" value="Valider"></p>
 		</form>
 
 
@@ -54,11 +55,14 @@
 				<?php
 				if(isset($_POST['lettre'])){
 					//Si une lettre est demandé on va filtrer
-					$stmt = $pdo->query("SELECT * 
+					//Le prepare va permettre d'utiliser le excecute en bas pour pouvoir remplacer "username" et "name" par les valeurs
+					//qui seront récuprées par le POST
+					//Query exécute directement la requête.
+					$stmt = $pdo->prepare("SELECT *                         
 										FROM users 
 					                    JOIN status ON users.status_id = status.id  
-										WHERE name = 'Active account' AND username LIKE 'text%'");
-					$retour = $stmt-> execute( array('username'=> $_POST['lettre']));
+										WHERE name = :name AND username LIKE :username");
+					$retour = $stmt-> execute( array('username'=> $_POST['lettre']."%", 'name'=> $_POST['status']));
 					while ($row = $stmt->fetch()) {
 				?>
 					<tr>
