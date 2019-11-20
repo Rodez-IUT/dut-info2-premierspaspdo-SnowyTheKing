@@ -76,7 +76,15 @@
 						<td><?php echo $row['id'];?></td> <!--Test pour pour commit avec le bon "fix"-->
 						<td><?php echo $row['username'] ;?></td>
 						<td><?php echo $row['email'];?></td>
-						<td><?php echo $row['name'];?></td>
+						<td><?php echo $row['name'];?>
+						<?php
+							if($row['name'] != "Waiting for account deletion"){
+						?>
+								<a href="all_users.php?status_id=3&user_id=<?php echo $row['id'];?>&action=askDeletion"> ask for deletion</a>
+						<?php
+							}
+						?>
+						</td>
 					</tr>
 				<?php
 					}
