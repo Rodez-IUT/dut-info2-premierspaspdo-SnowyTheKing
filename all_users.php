@@ -39,6 +39,7 @@
 			 <select name="status">
 			<option>Active account</option>
 			<option>Waiting for account validation</option>
+			<option>Waiting for account deletion</option>
 			</select>
 			<input type ="submit" value="Valider"></p>
 		</form>
@@ -54,6 +55,11 @@
 			</tr>
 				<?php
 				if(isset($_POST['lettre'])){
+					
+					/*
+					* Mettre ici le code avec une requête en 'query'
+					*/
+					
 					//Si une lettre est demandé on va filtrer
 					//Le prepare va permettre d'utiliser le excecute en bas pour pouvoir remplacer "username" et "name" par les valeurs
 					//qui seront récuprées par le POST
