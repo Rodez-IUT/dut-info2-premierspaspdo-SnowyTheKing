@@ -58,6 +58,7 @@
 					//Le prepare va permettre d'utiliser le excecute en bas pour pouvoir remplacer "username" et "name" par les valeurs
 					//qui seront récuprées par le POST
 					//Query exécute directement la requête.
+					//requeête préparé en dessous
 					$stmt = $pdo->prepare("SELECT *                         
 										FROM users 
 					                    JOIN status ON users.status_id = status.id  
