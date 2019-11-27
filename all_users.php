@@ -65,7 +65,7 @@
 					//qui seront récuprées par le POST
 					//Query exécute directement la requête.
 					//requeête préparé en dessous
-					$stmt = $pdo->prepare("SELECT *                         
+					$stmt = $pdo->prepare("SELECT users.*, status.name                     
 										FROM users 
 					                    JOIN status ON users.status_id = status.id  
 										WHERE name = :name AND username LIKE :username");
@@ -73,7 +73,7 @@
 					while ($row = $stmt->fetch()) {
 				?>
 					<tr>
-						<td><?php echo $row['id'];?></td> <!--Test pour pour commit avec le bon "fix"-->
+						<td><?php echo $row['id'];?></td> 
 						<td><?php echo $row['username'] ;?></td>
 						<td><?php echo $row['email'];?></td>
 						<td><?php echo $row['name'];?>
@@ -87,6 +87,13 @@
 						</td>
 					</tr>
 				<?php
+					}
+					if( $_GET['action'] == 'askDeletion'){
+								$insert = $pdo->prepare("INSERT INTO my_activities.action_log (action_date, action_name, user_id)
+														VALUES (:actionDate, :actionName, :userId)
+														");
+								$retour = $insert->execute(array(date('Y-m-d H:i:s'),'actionName'=> $_GET['action'],
+																'userId'=> $_GET['user_id']));
 					}
 				}
 				?>
