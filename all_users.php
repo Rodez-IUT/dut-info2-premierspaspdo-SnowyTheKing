@@ -88,12 +88,20 @@
 					</tr>
 				<?php
 					}
+					
+					
 					if( $_GET['action'] == 'askDeletion'){
 								$insert = $pdo->prepare("INSERT INTO my_activities.action_log (action_date, action_name, user_id)
 														VALUES (:actionDate, :actionName, :userId)
 														");
 								$retour = $insert->execute(array(date('Y-m-d H:i:s'),'actionName'=> $_GET['action'],
 																'userId'=> $_GET['user_id']));
+																
+								$bascule = $pdo->prepare("UPDATE my_activities.users
+														SET action_name = 'Waiting for account deletion'
+														WHERE id = $_GET['user_id']
+														");
+								$retour = $bascule->execute();
 					}
 				}
 				?>
