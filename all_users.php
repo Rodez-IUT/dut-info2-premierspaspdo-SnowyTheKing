@@ -97,7 +97,9 @@
 														");
 								$retour = $insert->execute(array(date('Y-m-d H:i:s'),'actionName'=> $_GET['action'],
 																'userId'=> $_GET['user_id']));
-																
+														
+
+								throw new Exception	("t'es nul");					
 								$bascule = $pdo->prepare("UPDATE my_activities.users
 														SET status_id = '3'
 														WHERE id = :userid
