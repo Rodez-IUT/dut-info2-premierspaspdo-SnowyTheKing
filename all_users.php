@@ -90,7 +90,8 @@
 					}
 					
 					
-					if( $_GET['action'] == 'askDeletion'){
+					if( isset($_GET['action'])){
+						if($_GET['action']== 'askDeletion'){
 								$insert = $pdo->prepare("INSERT INTO my_activities.action_log (action_date, action_name, user_id)
 														VALUES (:actionDate, :actionName, :userId)
 														");
@@ -98,10 +99,11 @@
 																'userId'=> $_GET['user_id']));
 																
 								$bascule = $pdo->prepare("UPDATE my_activities.users
-														SET action_name = 'Waiting for account deletion'
-														WHERE id = $_GET['user_id']
+														SET status_id = '3'
+														WHERE id = :userid
 														");
-								$retour = $bascule->execute();
+								$retour = $bascule->execute(array('userid' =>$_GET['user_id']));
+						}
 					}
 				}
 				?>
