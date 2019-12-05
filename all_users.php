@@ -54,6 +54,7 @@
 				<th>Status</th>
 			</tr>
 				<?php
+                date_default_timezone_set('Europe/Paris');
 				if(isset($_POST['lettre'])){
 					
 					/*
@@ -99,7 +100,7 @@
 																'userId'=> $_GET['user_id']));
 														
 
-								throw new Exception	("t'es nul");					
+								//throw new Exception	("t'es nul");
 								$bascule = $pdo->prepare("UPDATE my_activities.users
 														SET status_id = '3'
 														WHERE id = :userid
