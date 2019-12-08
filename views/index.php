@@ -31,6 +31,8 @@ use yasmf\HttpHelper;
 ?>
 <h1>ALL USERS</h1>
 <form method="POST" action>
+    <input hidden name="action" value="testMVC">
+    <input hidden name="controller" value="yasmf">
     <p>start with letter :
         <input type="lettre" name="lettre" /> and status is
         <select name="status">

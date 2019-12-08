@@ -1,4 +1,10 @@
 <?php
+
+namespace controllers;
+date_default_timezone_set('Europe/Paris');
+use yasmf\HttpHelper;
+use yasmf\View;
+
 /**
  * yasmf - Yet Another Simple MVC Framework (For PHP)
  *     Copyright (C) 2019   Franck SILVESTRE
@@ -17,23 +23,21 @@
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace yasmf;
-
-use controllers;
-
-class Router
+class AllUserController
 {
-    public function route($dataSource)
+    public function doQuery($pdo)
     {
-        // set the controller to enrole
-        $controllerName = HttpHelper::getParam('controller') ?: 'Home';
-        $controllerQualifiedName = "controllers\\" . $controllerName . "Controller";
-        $controller = new $controllerQualifiedName();
-        // set the action to trigger
-        $action = HttpHelper::getParam('action') ?: 'index';        /**Revoir là au niveau du paramètre*/
-        // trigger the appropriate action and get the resulted view
-        $view = $controller->$action($dataSource->getPdo());
-        // render the view
-        $view->render();
+        $lettre = httpHelper::getParam('lettre') ?: 'lettreTest';
+        $status = httpHelper::getParam('status') ?: 'statusid';
+
+        $view = new View ("dut-info2-premierspaspdo-SnowyTheKing/views/index");
+        $view -> setVar('lettre', $lettre);
+        $view -> setVar('status', $status);
+        return $view;
+
+        
+        
+
     }
+
 }
